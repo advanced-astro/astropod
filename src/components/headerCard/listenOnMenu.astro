@@ -15,10 +15,10 @@ import AcastPodcastsIcon from '../icons/acastPodcastsIcon.astro'
 let hasListenOn = false
 
 for (const key in listenOn) {
-	if (listenOn[key]) {
-		hasListenOn = true
-		break
-	}
+  if (listenOn[key as keyof typeof listenOn]) {
+    hasListenOn = true
+    break
+  }
 }
 ---
 

@@ -14,10 +14,10 @@ import ExternalLinkIcon from '../icons/externalLinkIcon.astro'
 let hasSocial = false
 
 for (const key in social) {
-	if (social[key]) {
-		hasSocial = true
-		break
-	}
+  if (social[key as keyof typeof social]) {
+    hasSocial = true
+    break
+  }
 }
 ---
 {hasSocial && (

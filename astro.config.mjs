@@ -1,8 +1,8 @@
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
-import tailwind from "@astrojs/tailwind";
-import decap from "astro-decap-cms";
+import tailwindcss from "@tailwindcss/vite";
+import decap from "@jee-r/astro-decap-cms";
 import decapConfig from "./decap.config.mjs";
 import astropodConfig from "./.astropod/astropod.config.json";
 import robotsTxt from "astro-robots-txt";
@@ -22,9 +22,11 @@ export default defineConfig({
     }),
     mdx(),
     sitemap(),
-    tailwind(),
     decap({
       config: decapConfig(),
     }),
   ],
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });
